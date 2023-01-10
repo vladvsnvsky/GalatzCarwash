@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+    <VBox spacing="10" alignment="CENTER" prefHeight="400" prefWidth="600"
+          xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.carwash.carwash.DashboardController">
+        <children>
+            <Button fx:id="registerOwnerButton" text="Register Owner"/>
+            <Button fx:id="registerCarButton" text="Register Car"/>
+            <Button fx:id="createNewMembership" text="Create Membership"/>
+            <Button fx:id="checkMembershipsButton" text="Check All Memberships"/>
+            <Button fx:id="exitAppButton" text="Exit App"/>
+        </children>
+    </VBox>
+
