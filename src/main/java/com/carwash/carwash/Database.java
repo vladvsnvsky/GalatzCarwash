@@ -71,6 +71,28 @@ public class Database {
 
     }
 
+    public static void updateMembership(String licensePlate, String email, LocalDate membershipStartDate, LocalDate membershipEndDate) throws SQLException {
+        // Construct the SQL UPDATE statement
+        String sql = "UPDATE membership SET email = ?, membership_start_date = ?, membership_end_date = ? WHERE license_plate_number = ?";
+
+        // Create a PreparedStatement
+        try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            // Set the values for the placeholders in the SQL statement
+            statement.setString(1, email);
+            statement.setObject(2, membershipStartDate);
+            statement.setObject(3, membershipEndDate);
+            statement.setString(4, licensePlate);
+
+            int rowsUpdated = statement.executeUpdate();
+            System.out.println(rowsUpdated + " row(s) updated.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     public static Car getCarByLicensePlateNumber(String licensePlate) {
         String sql = "SELECT * FROM cars WHERE license_plate_number = ?";
 

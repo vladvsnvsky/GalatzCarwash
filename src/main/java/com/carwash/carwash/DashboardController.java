@@ -16,6 +16,8 @@ public class DashboardController {
     @FXML
     private Button registerCarButton;
     @FXML
+    private Button createNewMembership;
+    @FXML
     private Button checkMembershipsButton;
     @FXML
     private Button exitAppButton;
@@ -39,6 +41,17 @@ public class DashboardController {
             Scene s = null;
             try {
                 s = buildRegistration();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            stage.setScene(s);
+            stage.show();
+        });
+        createNewMembership.setOnAction(event -> {
+            Stage stage = new Stage();
+            Scene s = null;
+            try {
+                s = buildMembershipRegistration();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
